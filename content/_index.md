@@ -1,32 +1,36 @@
 +++
-title = "Syntax"
-description = "Syntax"
+title = "Atlas"
+description = "Atlas Overview"
 +++
+
+# Installation
+
+# Syntax
 
 Atlas is a functional language with syntax resembling Python and Rust.
 
-# Variables
+## Variables
 
 Varible declarations in Atlas are marked by the `let` keyword and ended with a semicolon.
 Variables in Atlas are immutable.
 Lets assign a variable `x` the value `1`:
 
-```
+```rust
 let x = 1;
 ```
 
 If we want this variable to get exposed when another Atlas file imports it, we add a pub keyword:
 
-```
+```rust
 pub let not_secret = "This can be accessed by other files!";
 ```
 
 
-# Datatypes
+## Datatypes
 
 Atlas has all the primitive data types you would expect (integers, floats, bools, strings).
 Atlas also features lists, records, and tuples. Here's an example:
-```
+```rust
     let person = {
         "name": "Plato",
         "alive": (428, 348),
@@ -34,21 +38,23 @@ Atlas also features lists, records, and tuples. Here's an example:
         "books": ["Apology", "Republic", "Symposium"]
     };
 
-    let platosName = person["name"];
+    let platosName = person.name
 ```
 
-# Functions
+## Functions
 
 We can define functions in Atlas like this:
 
-```
-def doSomeMath(x) {
+```rust
+fn do_math(x) {
     let incr = x + 1;
-    incr * 2
+    let mul = incr * 2;
+    mul / incr
 }
+let a = do_math(3)
 ```
 
-```python
+```rust
 c = [1,2,3]
 ```
 

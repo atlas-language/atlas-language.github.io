@@ -1,3 +1,3 @@
 [submodule "themes/juice"]
 	path = themes/juice
-	url = https://github.com/huhu/juice
+	url = git@github.com:atlas-language/juice.git
