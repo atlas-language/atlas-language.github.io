@@ -5,6 +5,8 @@ description = "Atlas Overview"
 
 # Installation
 
+Installation instructions coming soon! Note that to use the userspace containers, you need a relatively modern kernel (>= 5.11)
+
 # Syntax
 
 Atlas is a functional language with syntax resembling Python and Rust.
