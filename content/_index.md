@@ -5,7 +5,9 @@ description = "Atlas Overview"
 
 # Installation
 
-Installation instructions coming soon! Note that to use the userspace containers, you need a relatively modern kernel (>= 5.11)
+You can download a pre-alpha binary 
+[here](https://github.com/atlas-language/atlas/releases/download/demo-prealpha/atlas-x86\_64.AppImage).
+Note that you need a very recent linux kernel version (> 5.11) in order to run the application as we use recent features for unprivileged containers.
 
 # Syntax
 
