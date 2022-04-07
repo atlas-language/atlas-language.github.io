@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color: #1db100;
+        /* Primary theme text color */
+        --primary-text-color: #404a3c;
+        /* Primary theme link color */
+        --primary-link-color: #F9BB2D;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        /* Highlight text color of table of content */
+        --toc-highlight-text-color: #d46e13;
+    }
+</style>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="https://atlas-language.github.io/juice.css">
+    
+<link rel="stylesheet" href="https://atlas-language.github.io/style.css">
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=DM Mono">
+
+</head>
+
+<body>
+    
+
+    <header class="pos-absolute" style="background-color: transparent">
+        
+
+<a href="https:&#x2F;&#x2F;atlas-language.github.io&#x2F;">
+    <div class="logo">
+        <img src="https://atlas-language.github.io/atlas_light.png" alt="logo">
+        Atlas
+    </div>
+</a>
+
+<nav>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;atlas-language&#x2F;atlas">Github</a>
+        
+    
+</nav>
+
+    </header>
+
+    <div class="hero">
+        
+<section style="padding:10px">
+    <h1 class="text-center heading-text">
+        Secure, fast, and reproducible builds
+    </h1>
+    <h3 class="text-center title-text">
+        Atlas let's you specify <em>exactly</em> how your software gets built.
+    </h3>
+</section>
+<div style="width: 100%; padding: 30px">
+    <script src="https://asciinema.org/a/Rp2CFEMqrVT9qhPYGiGODWhe4.js" id="asciicast-Rp2CFEMqrVT9qhPYGiGODWhe4" async></script>
+</div>
+
+<div class="explore-more text"
+    onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+    Explore More ⇩
+</div>
+
+    </div>
+
+    
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://atlas-language.github.io/#installation">Installation</a>
+                </div>
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://atlas-language.github.io/#syntax">Syntax</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://atlas-language.github.io/#variables"><small>- Variables</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://atlas-language.github.io/#datatypes"><small>- Datatypes</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://atlas-language.github.io/#functions"><small>- Functions</small></a>
+                </div>
+                
+                
+                
+                <div class="toc-item">
+                    <a class="subtext" href="https://atlas-language.github.io/#filesystems">Filesystems</a>
+                </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://atlas-language.github.io/#a-toy-example"><small>- A Toy Example</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="https://atlas-language.github.io/#applications"><small>- Applications</small></a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+            <div id="features" class="heading-text">Overview</div>
+            <h1 id="installation">Installation</h1>
+<p>You can download a pre-alpha binary 
+<a href="https://github.com/atlas-language/atlas/releases/download/demo-prealpha/atlas-x86_64.AppImage">here</a>.
+Note that you need a very recent linux kernel version (&gt; 5.11) in order to run the application as we use recent features for unprivileged containers.</p>
+<h1 id="syntax">Syntax</h1>
+<p>Atlas is a functional language with syntax resembling Python and Rust.</p>
+<h2 id="variables">Variables</h2>
+<p>Varible declarations in Atlas are marked by the <code>let</code> keyword and ended with a semicolon.
+Variables in Atlas are immutable.
+Lets assign a variable <code>x</code> the value <code>1</code>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> x = </span><span style="color:#d08770;">1</span><span>;
+</span></code></pre>
+<p>If we want this variable to get exposed when another Atlas file imports it, we add a pub keyword:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub let</span><span> not_secret = &quot;</span><span style="color:#a3be8c;">This can be accessed by other files!</span><span>&quot;;
+</span></code></pre>
+<h2 id="datatypes">Datatypes</h2>
+<p>Atlas has all the primitive data types you would expect (integers, floats, bools, strings).
+Atlas also features lists, records, and tuples. Here's an example:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>    </span><span style="color:#b48ead;">let</span><span> person = {
+</span><span>        &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Plato</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">alive</span><span>&quot;: (</span><span style="color:#d08770;">428</span><span>, </span><span style="color:#d08770;">348</span><span>),
+</span><span>        &quot;</span><span style="color:#a3be8c;">dead</span><span>&quot;: </span><span style="color:#d08770;">true</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">books</span><span>&quot;: [&quot;</span><span style="color:#a3be8c;">Apology</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Republic</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">Symposium</span><span>&quot;]
+</span><span>    };
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> platosName = person.name
+</span></code></pre>
+<h2 id="functions">Functions</h2>
+<p>We can define functions in Atlas like this:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">do_math</span><span>(x) {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> incr = x + </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">let</span><span> mul = incr * </span><span style="color:#d08770;">2</span><span>;
+</span><span>    mul / incr
+</span><span>}
+</span><span style="color:#b48ead;">let</span><span> a = </span><span style="color:#96b5b4;">do_math</span><span>(</span><span style="color:#d08770;">3</span><span>)
+</span></code></pre>
+<p>Notice that we don't need a return statement. The last expression in a function's body gets returned.</p>
+<h1 id="filesystems">Filesystems</h1>
+<p>Filesystems in Atlas are first class objects. Let's see a feq examples.</p>
+<h2 id="a-toy-example">A Toy Example</h2>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>let fs = {
+</span><span>    &quot;entries&quot;: {
+</span><span>        &quot;foo.txt&quot;:{
+</span><span>            &quot;content&quot;: &quot;this is the content of foo.txt&quot;
+</span><span>        }
+</span><span>        &quot;my_folder&quot;:{
+</span><span>            &quot;entries&quot;:{
+</span><span>                &quot;bar.txt&quot;: {
+</span><span>                    &quot;content&quot;:&quot;this is the content of bar.txt&quot;
+</span><span>                }
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>This object specifies a folder containing <code>foo.txt</code> and subdirectory called <code>my_folder</code> which contains <code>bar.txt</code>.
+There isn't much we can do with this filesystem since it doesn't have any executables.</p>
+<p>We've prewritten a filesystem <a href="https://raw.githubusercontent.com/atlas-language/samples/3cefece7cb2116d8918c7748f45f99e0bc1a59be/bash.at">here</a>, which contains a couple basic shell utilities like <code>bash</code>, <code>cat</code>, and <code>echo</code>.
+It's easy to fetch this filesystem, even though it's not on our machine.</p>
+<p>Notice that the entries on this filesystem are stored on the remote sample repository. Also notice that each file is
+defined by a function call. Since Atlas is lazy, they won't be fetched from the server until we use them.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>let fs = import(&quot;https://raw.githubusercontent.com/atlas-language/samples/3cefece7cb2116d8918c7748f45f99e0bc1a59be/bash.at&quot;).fs;
+</span></code></pre>
+<p>Now we can pass <code>fs</code> to the <code>exec</code> function, along with the binary we wish to run, and any arguments.</p>
+<p><code>let fs_modified = exec(fs, &quot;/&quot;, &quot;/bin/bash&quot;, []);</code></p>
+<p>When exec gets called, lots of special things happen under the hood. 
+First, the <code>fs</code> variable gets mounted as a read-only FUSE filesystem. 
+Then we make an writable overlay so tools like <code>touch</code> can write to it. 
+We can then execute the binary in this overlay, effectively creating a container that is isolated from the host operating system.
+All the while, all the files in <code>fs</code> hasn't even been downloaded!
+We don't need to until the <code>bash</code> binary interacts with a specific file. <em>We get this optimization for free</em>
+since Atlas is built from the ground up lazy.</p>
+<p>Notice that we get a new filesystem object, <code>fs_modified</code>. This is a new filesystem object, which contains
+the original <code>fs</code> files as well as any modifications that were made when <code>bash</code> was was run. We can resuse
+<code>fs_modified</code> to compose other operations we might want to run.</p>
+<p>Here is a demo of this exact workflow:</p>
+<script src="https://asciinema.org/a/1FODZaoDtGNjuaDVDVvYzJVsg.js" id="asciicast-1FODZaoDtGNjuaDVDVvYzJVsg" async></script>
+<h2 id="applications">Applications</h2>
+<p>This was a toy example. Let's see how Atlas can be used in a more practical setting.
+Suppose we have a project that we have written in C, and we are using some compiler specific features
+from a specific version of <code>gcc</code>. In a Makefile, we have no way of specifying the precise compiler
+binary that gets used in the build. Make will use whatever version happens to be located at <code>/usr/bin</code> --
+not great for reproducibility.</p>
+<p>We envision an Atlas repository for each version of the <code>gcc</code> compiler, much like there is a Dockerfile for
+each version of <code>node</code>. Each repository contains a binary for the <strong>exact</strong> <code>gcc</code> version. Just like in our <code>bash</code>
+example, a user can fetch it over the internet to compile their code exactly as it was intended.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>let gcc = import(&quot;https://raw.githubusercontent.com/atlas-language/samples/main/gcc11.2.at&quot;);
+</span><span>let exe = gcc.compile(fetch(&quot;sample.c&quot;));
+</span></code></pre>
+<p>In this example, we specify exactly which <code>gcc</code> version we want to use (11.2), and use it to compile
+a basic C file. We could do the same for libraries that we might want to link against too!</p>
+
+            
+        </div>
+
+        
+        
+    </main>
+
+    
+    <footer>
+        <small class="subtext">
+            (C) Daniel Pfrommer, Alexander Kassouni
+        </small>
+    </footer>
+
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>

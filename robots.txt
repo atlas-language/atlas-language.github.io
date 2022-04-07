@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://atlas-language.github.io/sitemap.xml
