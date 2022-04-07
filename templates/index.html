@@ -1,12 +1,21 @@
 {% extends "juice/templates/index.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=DM Mono">
+{% endblock head %}
+
 {% block hero %}
 <section style="padding:10px">
     <h1 class="text-center heading-text">
         Secure, fast, and reproducible builds
     </h1>
+    <h3 class="text-center title-text">
+        Atlas let's you specify <em>exactly</em> how your software gets built.
+    </h3>
 </section>
-<div style="width: 100%">
+<div style="width: 100%; padding: 30px">
     <script src="https://asciinema.org/a/Rp2CFEMqrVT9qhPYGiGODWhe4.js" id="asciicast-Rp2CFEMqrVT9qhPYGiGODWhe4" async></script>
 </div>
 

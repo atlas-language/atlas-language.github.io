@@ -56,8 +56,4 @@ fn do_math(x) {
 let a = do_math(3)
 ```
 
-```rust
-c = [1,2,3]
-```
-
 Notice that we don't need a return statement. The last expression in a function's body gets returned.
